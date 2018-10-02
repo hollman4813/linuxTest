@@ -42,13 +42,13 @@ public String phoneNumCheck(String pNum) throws Exception {
 		String strLv = null;
 		
 		String result = null;
-		query = "SELECT "+ "pNumber, Nickname, win, draw, lose, lv" + " FROM [TEAM].[dbo].[UserTable] WHERE pNumber ='"+ pNum +"'";
+		query = "SELECT "+ "pNumberSHA, Nickname, win, draw, lose, lv" + " FROM [TEAM].[dbo].[UserTable] WHERE pNumberSHA ='"+ pNum +"'";
 						
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(query);
 		
 		while(rs.next()) {
-			strpNum = rs.getString("pNumber");
+			strpNum = rs.getString("pNumberSHA");
 			strNick = rs.getString("nickname");
 			strWin = rs.getString("win");
 			strDraw = rs.getString("draw");
@@ -295,7 +295,7 @@ public String phoneNumCheck(String pNum) throws Exception {
 		}		
 		
 		String query = "INSERT INTO [TEAM].[dbo].[UserTable] VALUES("+ 
-				"'"+nickName+"', " + "'"+id+"', " + "'" + sha256+ "'," +"'0', " + "'0', " + "'0',"+"'1'," + "'" + pn + "')";
+				"'"+nickName+"', " + "'"+id+"', " + "'" + sha256+ "'," +"'0', " + "'0', " + "'0',"+"'1'," + "'1'," + "'" + pn + "')";
 		System.out.println(query);
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

@@ -19,7 +19,7 @@ public class Server {
 		
 		try {
 			serverSK = new ServerSocket();
-			serverSK.bind(new InetSocketAddress("220.88.9.3", port));
+			serverSK.bind(new InetSocketAddress("203.248.18.98", port));
 			list = new ArrayList<>();
 			
 			System.out.println("서버 가동중...");
